@@ -1,103 +1,56 @@
-/* 全局样式 */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f5e7fa; /* 设置页面浅紫色背景 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* 保证页面占满整个视口高度 */
+  background-color: #f3f3f3;
 }
 
-/* 主容器样式 */
 .container {
-  display: flex; /* 使用弹性布局，将其分为左右两部分 */
-  width: 70%; /* 容器的宽度为页面的70% */
-  height: 60%; /* 容器高度 */
-  background: #fff; /* 设置白色背景的容器 */
-  border-radius: 10px; /* 圆角效果 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 增加阴影效果 */
-}
-
-/* 左侧图片样式 */
-.image-container {
-  width: 40%; /* 左侧图片区域占整个容器的40%宽度 */
-  background: url('image.png') center/cover no-repeat; /* 设置图片背景 */
-  border-top-left-radius: 10px; /* 左上角圆角 */
-  border-bottom-left-radius: 10px; /* 左下角圆角 */
-}
-
-/* 右侧登录内容区域 */
-.login-container {
-  width: 60%; /* 右侧内容区域占60%宽度 */
-  padding: 40px;
+  max-width: 400px;
+  margin: 100px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   text-align: center;
 }
 
 h1 {
   color: #333;
-  font-size: 28px; /* 增加标题大小 */
-  margin-bottom: 20px; /* 标题和表单的间距 */
 }
 
 form {
   margin-top: 20px;
 }
 
-/* 输入框样式 */
 input[type="text"], input[type="password"] {
-  width: 80%; /* 输入框宽度为容器宽度的 80% */
-  padding: 10px 15px; /* 调整内边距，使其更舒适 */
+  width: 100%;
+  padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
-  border: 1px solid #ccc; /* 边框颜色 */
-  border-radius: 3px; /* 圆角边框 */
-  background: #dadcff; /* 设置输入框背景色，与整体设计一致 */
-  font-size: 16px;
-  letter-spacing: -0.5px;
-  outline: none; /* 去掉默认的输入框边框阴影 */
-}
-
-/* 鼠标聚焦时输入框样式 */
-input[type="text"]:focus, input[type="password"]:focus {
-  border-color: #5b4b8a; /* 聚焦时自动切换边框颜色 */
-  background: #ebe4f5; /* 聚焦时背景颜色 */
-}
-
-/* 按钮样式 */
-button {
-  background-color: #5b4b8a; /* 按钮背景颜色 */
-  color: #fff; /* 按钮文本颜色 */
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
+  border: 1px solid #ccc;
   border-radius: 3px;
-  font-size: 16px;
-  width: 80%; /* 按钮宽度匹配表单 */
-  transition: background-color 0.25s; /* 增加动画效果 */
 }
 
-/* 鼠标悬停时按钮样式 */
+button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+}
+
 button:hover {
-  background-color: #4a3675; /* 鼠标悬停时按钮颜色变化 */
+  background-color: #0056b3;
 }
 
-/* 链接的样式（非必需，作为通用链接的样式可以保留） */
 .links a {
-  color: #5b4b8a; /* 链接颜色设置 */
+  color: #007BFF;
   text-decoration: none;
-  font-size: 14px;
 }
 
 .links a:hover {
-  text-decoration: underline; /* 悬停时，链接加下划线 */
-}
-
-/* 错误消息样式 */
-#errorMsg {
-  font-size: 14px;
-  margin-top: 10px;
-  color: red;
-  display: none; /* 默认隐藏 */
+  text-decoration: underline;
 }
