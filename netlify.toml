@@ -1,5 +1,5 @@
 [build]
-  publish = "public"        # 静态文件所在目录
+  publish = "./"        # 静态文件所在目录
   functions = "netlify/functions"  # 后端函数路径
 
 [functions]

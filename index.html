@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>登录</h1>
+    <form id="loginForm">
+      <label for="username">用户名:</label>
+      <input type="text" id="username" name="username" required>
+      <br><br>
+
+      <label for="password">密码:</label>
+      <input type="password" id="password" name="password" required>
+      <br><br>
+
+      <button type="submit">登录</button>
+    </form>
+
+    <p id="errorMsg" style="color: red; display: none;"></p> <!-- 错误消息显示 -->
+  </div>
+
+  <script>
+    // 获取表单和错误信息显示容器
+    const form = document.getElementById("loginForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    // 监听表单提交事件
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); // 阻止页面刷新或默认提交行为
+
+      // 获取表单中的用户名和密码
+      const username = form.username.value;
+      const password = form.password.value;
+
+      try {
+        // 向后端发送请求
+        const response = await fetch('/.netlify/functions/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password }),
+        });
+
+        if (response.ok) {
+          // 登录成功，跳转到 score.html
+          window.location.href = "score.html";
+        } else {
+          // 登录失败，显示错误信息
+          const result = await response.json();
+          errorMsg.style.display = "block";
+          errorMsg.textContent = result.error || "登录失败，请检查用户名和密码！";
+        }
+      } catch (err) {
+        errorMsg.style.display = "block";
+        errorMsg.textContent = "服务器错误，请稍后再试！";
+      }
+    });
+  </script>
+</body>
+</html>
