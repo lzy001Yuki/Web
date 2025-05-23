@@ -3,24 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>教育部考试院托福成绩查询-登录</title>
+  <title>登录页面</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>登录</h1>
-    <form action="/login" method="POST">
-      <label for="username">用户名:</label><br>
-      <input type="text" id="username" name="username" required><br><br>
-      
-      <label for="password">密码:</label><br>
-      <input type="password" id="password" name="password" required><br><br>
-      
+    <!-- 删除原本的 'action' 表单属性，改为 JavaScript 处理 -->
+    <form id="loginForm">
+      <label for="username">用户名:</label>
+      <input type="text" id="username" name="username" required>
+      <br><br>
+
+      <label for="password">密码:</label>
+      <input type="password" id="password" name="password" required>
+      <br><br>
+
       <button type="submit">登录</button>
     </form>
-    <div class="links">
-      <a href="#">忘记密码？</a> | <a href="#">注册</a>
-    </div>
+
+    <p id="errorMsg" style="color:red; display:none;"></p> <!-- 用于显示错误信息 -->
   </div>
+
+  <script>
+    // 监听表单提交事件
+    const form = document.getElementById("loginForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); // 阻止表单默认提交动作
+
+      // 获取用户名和密码
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // 发送请求到后端
+      const response = await fetch('/.netlify/functions/login', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      if (response.status === 200) {
+        // 登录成功，跳转到成绩页面
+        window.location.href = "score.html";
+      } else {
+        // 登录失败，显示错误信息
+        const result = await response.json();
+        errorMsg.style.display = "block";
+        errorMsg.textContent = result.error || "登录失败，请重试！";
+      }
+    });
+  </script>
 </body>
 </html>
