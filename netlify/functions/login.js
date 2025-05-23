@@ -1,7 +1,7 @@
 exports.handler = async (event, context) => {
   // 模拟的用户数据库
   const users = [
-    { username: "Yuki", password: "1111", ETS:"9876305251070196" },
+    { username: "lzy001@sjtu.edu.cn", password: "1104LL2008", ETS:"9876305251070196" },
   ];
 
   // 限制只接受 POST 请求
