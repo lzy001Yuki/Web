@@ -17,6 +17,20 @@
       height: 100vh;
     }
 
+    .top-image {
+      position:fixed;
+      top:10px;
+      left:50px;
+      width: 200px;
+      object-fit: cover;
+    }
+    .bottom-image {
+      position:fixed;
+      bottom:0px;
+      height:80px;
+      width:auto;
+      object-fit: cover;
+    }
     .container {
       display: flex;
       align-items: center;
@@ -28,9 +42,9 @@
       border-radius: 10px;
     }
     .image-container {
-      width: 300px;
-      height: 200px;
-      overflow: hidden; /* 防止图片溢出 */
+      margin-left: 30px;
+      width: 1200px;
+      height:auto;
     }
     .image-container img {
       width: 100%;
@@ -39,19 +53,20 @@
     }
     /* 右侧登录表单部分 */
     .login-container {
-      width: 380px; /* 右侧部分占40% */
-      height: 440px;
+      margin-right:40px;
+      width: 350px; 
+      height: 420px;
       padding: 40px;
       background-color: #f9f8f9; 
       text-align: center;
-      margin-left:800px;
+      margin-left:50px;
     }
 
     .login-container h1 {
       font-size: 28px;
       color: #333;
       margin-bottom: 20px;
-      margin-left: -200px;
+      margin-left: -250px;
     }
 
     form {
@@ -71,7 +86,7 @@
 
 
     .controls input {
-      width: 60%;
+      width: 75%;
       padding: 10px 15px;
       font-size: 16px;
       color: #333;
@@ -103,7 +118,7 @@
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
       position:fixed;
-      bottom:300px;
+      bottom:280px;
     }
 
     button:hover {
@@ -120,11 +135,11 @@
   </style>
 </head>
 <body>
-  
+  <img src="toefl.png" alt="顶部图片" class="top-image">
   <div class="container">
     <!-- 左侧图片部分 -->
     <div class="image-container">
-    <img src="image.jpg" alt="描述文字">
+    <img src="img.png" alt="描述文字">
    </div>
 
     <!-- 右侧表单部分 -->
@@ -201,5 +216,6 @@
       }
     });
   </script>
+   <img src="bottom.png" alt="顶部图片" class="bottom-image">
 </body>
 </html>
