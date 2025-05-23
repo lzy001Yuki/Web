@@ -3,25 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>登录</title>
+  <title>教育部考试院托福成绩查询-登录</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* 整体页面布局 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5e7fa; /* 设置浅紫色背景 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70%;
+      height: 80%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      background-color: white;
+      border-radius: 10px;
+    }
+
+    /* 左侧图片部分 */
+    .image-container {
+      width: 40%; /* 图片区域占左侧40% */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('image.jpg') center/contain no-repeat; /* 设置图片 */
+      background-color: #ebe4f5; /* 辅助背影浅紫色过渡 */
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    /* 右侧登录表单部分 */
+    .login-container {
+      width: 60%; /* 右侧部分占60% */
+      padding: 40px;
+      text-align: center;
+    }
+
+    .login-container h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* 输入框美化样式 */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .controls input {
+      width: 80%;
+      padding: 10px 15px;
+      font-size: 16px;
+      color: #333;
+      background: #dadcff; /* 输入框背景颜色 */
+      border: 1px solid #bbb; /* 边框颜色 */
+      border-radius: 0; /* 去掉弧度 */
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    .controls input:focus {
+      border-color: #333; /* 聚焦时边框颜色 */
+    }
+
+    .controls input::placeholder {
+      color: #888; /* 占位符颜色 */
+      letter-spacing: -0.5px;
+    }
+
+    /* 登录按钮样式 */
+    button {
+      width: 80%;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: white;
+      background-color: #5b4b8a;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #4a3675; /* 悬停效果 */
+    }
+
+    /* 错误消息 */
+    #errorMsg {
+      font-size: 14px;
+      margin-top: 10px;
+      color: red;
+      display: none; /* 默认隐藏 */
+    }
+  </style>
 </head>
 <body>
+  
   <div class="container">
-    <h1>登录</h1>
-    <form id="loginForm">
-      <label for="username">用户名:</label>
-      <input type="text" id="username" name="username" required>
-      <br><br>
+    <!-- 左侧图片部分 -->
+    <div class="image-container"></div>
 
-      <label for="password">密码:</label>
-      <input type="password" id="password" name="password" required>
-      <br><br>
+    <!-- 右侧表单部分 -->
+    <div class="login-container">
+      <h1>登录</h1>
+      <form id="loginForm">
+        <div class="controls">
+          <input 
+            id="username" name="username" 
+            style="ime-mode:disabled;" 
+            tabindex="1" 
+            placeholder="NEEA ID或邮箱" 
+            required="required" 
+            type="text">
+        </div>
 
-      <button type="submit">登录</button>
-    </form>
+        <div class="controls">
+          <input 
+            id="password" name="password" 
+            style="ime-mode:disabled;" 
+            tabindex="2" 
+            placeholder="密码" 
+            required="required" 
+            type="password">
+        </div>
 
-    <p id="errorMsg" style="color: red; display: none;"></p> <!-- 错误消息显示 -->
+        <button type="submit">登录</button>
+      </form>
+
+      <p id="errorMsg"></p> <!-- 错误提示框 -->
+    </div>
   </div>
 
   <script>
@@ -31,14 +161,12 @@
 
     // 监听表单提交事件
     form.addEventListener("submit", async (event) => {
-      event.preventDefault(); // 阻止页面刷新或默认提交行为
+      event.preventDefault();
 
-      // 获取表单中的用户名和密码
       const username = form.username.value;
       const password = form.password.value;
 
       try {
-        // 向后端发送请求
         const response = await fetch('/.netlify/functions/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -46,10 +174,8 @@
         });
 
         if (response.ok) {
-          // 登录成功，跳转到 score.html
           window.location.href = "score.html";
         } else {
-          // 登录失败，显示错误信息
           const result = await response.json();
           errorMsg.style.display = "block";
           errorMsg.textContent = result.error || "登录失败，请检查用户名和密码！";
