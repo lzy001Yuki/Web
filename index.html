@@ -27,30 +27,31 @@
       background-color: #8078ba;
       border-radius: 10px;
     }
-
-    /* 左侧图片部分 */
     .image-container {
-      width: 40%; /* 图片区域占左侧40% */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('image.jpg') center/contain no-repeat; /* 设置图片 */
-      background-color: #ebe4f5; /* 辅助背影浅紫色过渡 */
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
+      width: 300px;
+      height: 200px;
+      overflow: hidden; /* 防止图片溢出 */
     }
-
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 类似 background-size: cover */
+    }
     /* 右侧登录表单部分 */
     .login-container {
-      width: 60%; /* 右侧部分占60% */
+      width: 380px; /* 右侧部分占40% */
+      height: 440px;
       padding: 40px;
+      background-color: #f9f8f9; 
       text-align: center;
+      margin-left:800px;
     }
 
     .login-container h1 {
       font-size: 28px;
       color: #333;
       margin-bottom: 20px;
+      margin-left: -200px;
     }
 
     form {
@@ -65,11 +66,12 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
+
     .controls input {
-      width: 50%;
+      width: 60%;
       padding: 10px 15px;
       font-size: 16px;
       color: #333;
@@ -91,7 +93,7 @@
 
     /* 登录按钮样式 */
     button {
-      width: 8%;
+      width: 80px;
       padding: 10px 20px;
       font-size: 18px;
       color: white;
@@ -100,6 +102,8 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
+      position:fixed;
+      bottom:300px;
     }
 
     button:hover {
@@ -119,7 +123,9 @@
   
   <div class="container">
     <!-- 左侧图片部分 -->
-    <div class="image-container"></div>
+    <div class="image-container">
+    <img src="image.jpg" alt="描述文字">
+   </div>
 
     <!-- 右侧表单部分 -->
     <div class="login-container">
@@ -143,6 +149,17 @@
             placeholder="密码" 
             required="required" 
             type="password">
+        </div>
+
+        
+        <div class="controls">
+          <input 
+            id="ETS" name="ets" 
+            style="ime-mode:disabled;" 
+            tabindex="3" 
+            placeholder="ETS注册号" 
+            required="required" 
+            type="ETS">
         </div>
 
         <button type="submit">登录</button>
