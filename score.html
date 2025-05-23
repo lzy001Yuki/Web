@@ -4,18 +4,145 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>教育部考试院托福成绩查询</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+     body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: white; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+        .container {
+          position:fixed;
+          top:250px;
+      width: 80%;
+      height: 80%;
+      background-color: white;
+      border-radius: 10px;
+    }
+
+    .top{
+      position: fixed;
+      border: 1px solid #333; /* 设置边框宽度、样式和颜色 */
+      border-radius: 10px;    /* 设置边框圆角 */
+      padding: 15px;          /* 内容的内边距 */
+      top:100px;
+      left:150px;
+      height: 100px;
+      width: 80%;
+    }
+
+    .top-image {
+      position:fixed;
+      top:10px;
+      left:50px;
+      width: 200px;
+      object-fit: cover;
+    }
+
+    table {
+      width: 60%; /* 设置表格宽度 */
+      margin: 20px auto; /* 设置表格居中显示 */
+      border-collapse: collapse; /* 表格边框合并 */
+      text-align: center; /* 文本居中 */
+    }
+    th, td {
+      border: 1px solid #555; /* 设置单元格边框 */
+      padding: 10px; /* 单元格内边距 */
+    }
+    th {
+      font-weight: bold; /* 加粗字体 */
+    }
+    table caption {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    td {
+      background-color: #f9f9f9; /* 单元格背景颜色（可选） */
+    }
+
+
+  </style>
 </head>
 <body>
+  <img src="toefl.png" alt="顶部图片" class="top-image">
+  <div class="top">
+  <p><span style="color: #3f238b;font-size: 18px;"><b>李芷妍,LI ZHIYAN </b></span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">欢迎登录教育部教育考试院托福网考考试报名网站</span></p>
+  <div style="color:#333;font-size:14px;">
+  
+      <span style="font-weight:600;font-size:14px;">NEEA ID:</span>
+      <span style="font-size:14px;color: #666;">21750161</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span style="font-weight:600;font-size:14px;">ETS ID:</span>
+                                <span style="font-size:14px;color: #666;">
+                                        13G70E27</span>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;
+       <span style="font-weight:600;font-size:14px;">账户余额:</span>
+                            <span id="balanceRefreshField" style="font-weight: normal; color: #666; font-size:14px;">RMB¥0.00</span>
+      </div>
+                    
+                       
+     <div style="color:#333;font-size:14px;margin-top:5px;">
+
+                            <span style="font-weight:600;font-size:14px;">性别:</span>
+                            <span style="font-size:14px;color: #666;">
+                                女</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="font-weight:600;font-size:14px;">出生年月日:</span>
+                            <span style="font-size:14px;color: #666;">2005-11-04</span>
+   
+                    </div>
+
+  </div>
   <div class="container">
-    <h1>成绩详情</h1>
-    <p>欢迎回来！以下是您的成绩:</p>
-    <ul>
-      <li>数学: 95</li>
-      <li>英语: 88</li>
-      <li>物理: 91</li>
-    </ul>
-    <a href="index.html">返回登录界面</a>
+    <h1>Your Most Recent MyBest™ Scores</h1>
+    <p>MyBest™ Scores是过去两年所有TOEFL iBT®考试中每部分的最高分。当测试分数公布，更改，取消或过期时，MyBest™ Scores可能会发生变化。
+收到分数后，您的MyBest™ Scores将显示在这里。</p>
+    <table border="1">
+    <tr style="background-color: #307acf; color: white;">
+    <th>Sum of Highest Section Scores<br>(0-30)</th>
+    <th>Reading<br>(0-30)</th>
+    <th>Listening<br>(0-30)</th>
+    <th>Speaking<br>(0-30)</th>
+    <th>Writing<br>(0-30)</th>
+  </tr>
+  <tr>
+    <td><b>103</b></td>
+    <td><b>30</b><br> Test Date: <br> 2025年5月17日</td>
+    <td><b>26</b><br> Test Date: <br> 2025年5月17日</td>
+    <td><b>23</b><br> Test Date: <br> 2025年5月17日</td>
+    <td><b>24</b><br> Test Date: <br> 2025年5月17日</td>
+  </tr>
+</table>
+  <h1><span style="color: #3f238b;">查看成绩</span></h1>
+  <p><b>报名网站上只向考生显示两年内的有效成绩。</b></p>
+  <p><b>Most Recent Scores:</b></p>
+      <table border="2" style="margin-left: 0">
+    <tr>
+    <th>Test<br>(0-30)</th>
+    <th>Test Date<br>(0-30)</th>
+    <th>Reading<br>(0-30)</th>
+    <th>Listening<br>(0-30)</th>
+    <th>Speaking<br>(0-30)</th>
+    <th>Writing<br>(0-30)</th>
+    <th>Total<br>(0-120)</th>
+  </tr>
+  <tr>
+    <td>TOEFL iBT</td>
+    <td>Sat May 17 09:00:00 EST 2025</td>
+    <td>30</td>
+    <td>26</td>
+    <td>23</td>
+    <td>24</td>
+    <td>103</td>
+  </tr>
+</table>
+<a href="index.html" style="display: inline-block; padding: 8px 16px; background-color: #f19b22; color: rgb(1, 0, 0); text-decoration: none; border-radius: 4px; ; transition: background-color 0.3s;">退出登录</a>
   </div>
 </body>
 </html>

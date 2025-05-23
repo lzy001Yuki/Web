@@ -1,8 +1,7 @@
 exports.handler = async (event, context) => {
   // 模拟的用户数据库
   const users = [
-    { username: "Yuki", password: "1111" },
-    { username: "user2", password: "password2" },
+    { username: "Yuki", password: "1111", ETS:"9876305251070196" },
   ];
 
   // 限制只接受 POST 请求
@@ -14,10 +13,10 @@ exports.handler = async (event, context) => {
   }
 
   // 获取请求体中的用户名和密码
-  const { username, password } = JSON.parse(event.body || "{}");
+  const { username, password, ETS} = JSON.parse(event.body || "{}");
 
   // 验证用户是否存在
-  const user = users.find(user => user.username === username && user.password === password);
+  const user = users.find(user => user.username === username && user.password === password && user.ETS === ETS);
 
   // 如果找到用户，则返回成功状态，否则返回未授权状态
   if (user) {
