@@ -1,0 +1,6 @@
+[build]
+  publish = "public"        # 静态文件所在目录
+  functions = "netlify/functions"  # 后端函数路径
+
+[functions]
+  node_bundler = "esbuild"  # 默认使用 esbuild 打包函数
